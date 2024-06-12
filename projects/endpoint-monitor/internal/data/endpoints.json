@@ -1,0 +1,122 @@
+[{
+		"Name":         "Cluster Pay With Transfer Webhook",
+		"FamiliarName": "Pay With Transfer API",
+		"Url":          "http://paywithtransfer.cluster.africa/swagger/index.html",
+		"Description":  "This endpoint is responsible for receiving inward transfer notifications",
+		"Implication":  "Downtime on this service implies that merchants would not be able to confirm their customer payments",
+		"Severity":     "CRITICAL",
+		"Protocol":     "HTTP"
+	},
+	{
+		"Name":         "Cluster Mobile API Gateway",
+		"FamiliarName": "CreditClub Middleware",
+		"Url":          "https://cluster.africa/CreditClubMiddlewareAPI",
+		"Description":  "This is the entry point for all mobile app related calls",
+		"Implication":  "Downtime on this service implies that agents/merchants would not be able to carry out any transactions at all",
+		"Severity":     "CRITICAL",
+		"Protocol":     "HTTP"
+	},
+	{
+		"Name":         "Cluster Web API Gateway",
+		"FamiliarName": "Cluster API",
+		"Url":          "https://cluster.africa/ClusterApi/swagger/ui/index",
+		"Description":  "This is the entry point for all mobile app related calls",
+		"Implication":  "Downtime on this service implies that institution admin staff would be able to login but would not be able to carry out any administrative functions",
+		"Severity":     "URGENT",
+		"Protocol":     "HTTP"
+	},
+	{
+		"Name":         "Cluster Web Identity Manager",
+		"FamiliarName": "Cluster Auth",
+		"Url":          "https://cluster.africa/cluster_auth/index.html",
+		"Description":  "This endpoint is responsible for receiving inward transfer notifications",
+		"Implication":  "Downtime on this service implies that all web users would not be able to log in to their web portal",
+		"Severity":     "URGENT",
+		"Protocol":     "HTTP"
+	},
+	{
+		"Name":         "Cluster Web Portal",
+		"FamiliarName": "Cluster Web",
+		"Url":          "https://web.cluster.africa/login",
+		"Description":  "This endpoint is responsible for receiving inward transfer notifications",
+		"Implication":  "Downtime on this service implies that institution admin and appzone admins would not be able to access their web portal",
+		"Severity":     "URGENT",
+		"Protocol":     "HTTP"
+	},
+	{
+		"Name":         "Cluster Analytics",
+		"FamiliarName": "CreditClub.Analytics",
+		"Url":          "https://cluster.africa/CreditClubanalytics/playground/",
+		"Description":  "This endpoint is responsible for receiving inward transfer notifications",
+		"Implication":  "Downtime on this service implies that the dashboard would not display any values to the admin users",
+		"Severity":     "WARNING",
+		"Protocol":     "HTTP"
+	},
+	{
+		"Name":         "Card Transactions Gateway [ISW-KIM]",
+		"FamiliarName": "CreditClub.Processor",
+		"Description":  "This endpoint is responsible for receiving card transaction requests directly from the terminals and routing them to the Kimono Sandbox (Cluster.Interswitch.Kimono) which then routes to Interswitch Kimono",
+		"Implication":  "Downtime on this service implies that no agent/merchant of Polaris(the only institution using Kimono) would be able to perform card transactions successfully",
+		"Severity":     "CRITICAL",
+		"Protocol":     "TCP",
+		"Ip":           "52.255.236.235",
+		"Port":         8082
+	},
+	{
+		"Name":         "Card Transactions Gateway [ISW-ISO]",
+		"FamiliarName": "CreditClub.Processor",
+		"Description":  "This endpoint is responsible for receiving card transaction requests directly from the terminals and routing them to the Iso Sandbox (Cluster.Interswitch.Iso) which then routes to Interswitch Iso",
+		"Implication":  "Downtime on this service implies that all verve card transactions from the agent/merchant terminal would be failing",
+		"Severity":     "CRITICAL",
+		"Protocol":     "TCP",
+		"Ip":           "52.255.236.235",
+		"Port":         8081
+	},
+	{
+		"Name":         "Card Transactions Gateway [UP]",
+		"FamiliarName": "CreditClub.Processor",
+		"Description":  "This endpoint is responsible for receiving card transaction requests directly from the terminals and routing them to the Unified Payments Sandbox (Cluster.UnifiedPayments) which then routes to Unified Payments",
+		"Implication":  "Downtime on this service implies that all non-verve card transactions from the agent/merchant terminal would be failing",
+		"Severity":     "CRITICAL",
+		"Protocol":     "TCP",
+		"Ip":           "52.255.236.235",
+		"Port":         8083
+	},
+	{
+		"Name":         "Bank One Webhook",
+		"FamiliarName": "Bank One Webhook",
+        "Url":          "https://prod-bankonewebhook.azurewebsites.net/health",
+		"Description":  "This endpoint is responsible for notifying our pay with transfer api service of postings in and out of accounts in the registered institutions",
+		"Implication":  "Downtime on this service implies that we do not get notifications for any bank transfers into any mfb accounts registered on Bank One. This would affect our pay with transfer reliability gravely ",
+		"Severity":     "CRITICAL",
+		"Protocol":     "HTTP"
+	},
+	{
+		"Name":         "Interswitch Kimono Transact API",
+		"FamiliarName": "Kimono",
+        "Url":          "https://kimono.interswitchng.com/kmw/",
+		"Description":  "This endpoint is responsible for processing polaris card transactions",
+		"Implication":  "Downtime on this service implies that all polaris transactions less than 5K from the agent/merchant terminal would be failing",
+		"Severity":     "CRITICAL",
+		"Protocol":     "HTTP"
+	},
+	{
+		"Name":         "Interswitch Kimono Token API",
+		"FamiliarName": "Kimono Token API",
+        "Url":          "https://saturn.interswitchng.com/kimonotms",
+		"Description":  "This endpoint is responsible for authenticating transactions for polaris card transactions",
+		"Implication":  "Downtime on this service implies that all polaris transactions less than 5K from the agent/merchant terminal would be failing",
+		"Severity":     "CRITICAL",
+		"Protocol":     "HTTP"
+	},
+	{
+		"Name":         "NIBSS",
+		"FamiliarName": "NIBSS",
+		"Description":  "This endpoint is responsible for processing card transactions less than 5K",
+		"Implication":  "Downtime on this service implies that all polaris transactions less than 5K from the agent/merchant terminal would be failing",
+		"Severity":     "CRITICAL",
+		"Protocol":     "TCP",
+		"Ip":           "196.6.103.18",
+		"Port":         4036
+	}
+]
