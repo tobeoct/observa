@@ -1,6 +1,6 @@
 # Observa
 
-Welcome to the Qore Observa Solution README! This document provides information about building, running, and using all applications within this solution.
+Welcome to the Observa Solution README! This document provides information about building, running, and using all applications within this solution.
 
 ## Table of Contents
 
